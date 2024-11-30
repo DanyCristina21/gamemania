@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+.html, .porratoda { height: 100%; }
+.porratoda { margin: 5; font-family: Roboto, "Helvetica Neue", sans-serif}
+
+.porratoda {
+  background-color: black;
+}
