@@ -9,7 +9,7 @@ import { NgFor } from '@angular/common';
 })
 export class ProdutosComponent implements OnInit {
 
-  categories: string[] = ['Games', 'Hardware', 'Work', 'Periféricos', 'Smartphones'];
+  categories: string[] = ['GAMES - Os melhores jogos do mercado', 'MONTE O SEU PC - tudo para montar e turbinar a sua máquina', 'HARDWARE - As melhores ofertas de hardware estão aqui', 'PERIFÉRICOS - aqui você encontra todos os dispositivos que necessita', 'SMARTPHONES - celulares para todos gostos e bolsos', 'WORK - tudo o que você precisa para o seu home office'];
   selectedCategory: string = 'Games'; // Categoria inicial
 
   products: any[] = [
