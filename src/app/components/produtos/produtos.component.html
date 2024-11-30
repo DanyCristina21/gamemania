@@ -1,1 +1,23 @@
-<p>produtos works!</p>
+<div class="product-display-container">
+  <!-- Filtro de Categorias -->
+  <div class="category-filter">
+    <h3>Filtrar por Categoria</h3>
+    <ul>
+      <li *ngFor="let category of categories" (click)="onCategoryChange(category)">
+        {{ category }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Exibição dos Produtos -->
+  <div class="product-grid">
+    <div *ngFor="let product of filteredProducts" class="product-card">
+      <img [src]="product.imageUrl" alt="{{ product.name }}" class="product-image">
+      <div class="product-details">
+        <h4>{{ product.name }}</h4>
+        <h4><p>Preço: R$ {{ product.price }}</p></h4>
+      </div>
+    </div>
+  </div>
+</div>
+
