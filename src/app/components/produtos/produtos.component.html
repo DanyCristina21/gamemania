@@ -16,6 +16,8 @@
       <div class="product-details">
         <h4>{{ product.name }}</h4>
         <p>R$ {{ product.price }}</p>
+        <!-- Botão de Comprar -->
+        <button (click)="addToCart(product)" class="btn-buy">COMPRAR</button>
       </div>
     </div>
   </div>

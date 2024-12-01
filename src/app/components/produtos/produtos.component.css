@@ -64,19 +64,39 @@
 
 .product-details h4 {
   font-size: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .product-details p {
-  font-size: 22px;
+  font-size: 32px;
   color: black;
   font-weight: bold;
   text-align: center;
+  margin-top: 10px;
 }
 
 .valor {
   font-size: 22px;
   font-weight: bold;
   color: black;
+}
+
+.btn-buy {
+  background-color: #B60505;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.btn-buy:hover {
+  background-color: #b94e4e;
 }
