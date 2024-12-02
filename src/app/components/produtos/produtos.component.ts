@@ -22,6 +22,13 @@ export class ProdutosComponent implements OnInit {
     { id: 6, name: 'Smartphone Motorola Moto G04s, 8GB RAM, 128GBt', category: 'SMARTPHONES - celulares para todos gostos e bolsos', price: 720, imageUrl: 'assets/products/celular.png' },
     { id: 7, name: 'Jogo EA Sports FC 25, PS5', category: 'GAMES - Os melhores jogos do mercado', price: 190, imageUrl: 'assets/products/jogo1.png' },
     { id: 8, name: 'Jogo Assassins Creed Mirage - PS4', category: 'GAMES - Os melhores jogos do mercado', price: 250, imageUrl: 'assets/products/jogo2.png' },
+    { id: 9, name: 'Smartphone LG K61, 128GB, 48MP, Tela 6.5", Branco', category: 'SMARTPHONES - celulares para todos gostos e bolsos', price: 1250, imageUrl: 'assets/products/celular1.png' },
+    { id: 10, name: 'Celular Positivo P38, Dual Chip, Featura Phone, Tela 2.8', category: 'SMARTPHONES - celulares para todos gostos e bolsos', price: 210, imageUrl: 'assets/products/celular2.png' },
+    { id: 11, name: 'Iphone 15 Apple, 128GB, Quadriband, Preto', category: 'SMARTPHONES - celulares para todos gostos e bolsos', price: 4600, imageUrl: 'assets/products/celular3.png' },
+    { id: 12, name: 'Smartphone Samsung Galaxy A15, 128GB, 4GB RAM, Azul Escuro', category: 'SMARTPHONES - celulares para todos gostos e bolsos', price: 790, imageUrl: 'assets/products/celular4.png' },
+    { id: 13, name: 'Smartphone Asus Zenfone 9, 6GB, 128GB, 5g Octa Core Snapdragon, Preto', category: 'SMARTPHONES - celulares para todos gostos e bolsos', price: 3140, imageUrl: 'assets/products/celular5.png' },
+    { id: 14, name: 'Smartphone Lenovo Thinkphone Xt2309-2 5g Pe, 256GB', category: 'SMARTPHONES - celulares para todos gostos e bolsos', price: 2540, imageUrl: 'assets/products/celular6.png' },
+    { id: 15, name: 'Caixa Arquivo Gaveteiro Organizador', category: 'WORK - tudo o que você precisa para o seu home office', price: 110, imageUrl: 'assets/products/office.png' },
   ];
 
   filteredProducts: any[] = [];
