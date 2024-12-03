@@ -1,5 +1,8 @@
+import { Name } from './../../../../node_modules/ajv/lib/compile/codegen/code';
 import { Component, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
+import { CartService } from '../../cart.service';
+
 
 
 @Component({
@@ -10,10 +13,9 @@ import { NgFor } from '@angular/common';
 })
 export class ProdutosComponent implements OnInit {
 
-  categories: string[] = ['GAMES - Os melhores jogos do mercado', 'MONTE O SEU PC - tudo para montar e turbinar a sua máquina', 'HARDWARE - As melhores ofertas de hardware estão aqui', 'PERIFÉRICOS - aqui você encontra todos os dispositivos que necessita', 'SMARTPHONES - celulares para todos gostos e bolsos', 'WORK - tudo o que você precisa para o seu home office'];
-  selectedCategory: string = 'Games'; // Categoria inicial
+  categories = ['GAMES - Os melhores jogos do mercado', 'MONTE O SEU PC - tudo para montar e turbinar a sua máquina', 'HARDWARE - As melhores ofertas de hardware estão aqui', 'PERIFÉRICOS - aqui você encontra todos os dispositivos que necessita', 'SMARTPHONES - celulares para todos gostos e bolsos', 'WORK - tudo o que você precisa para o seu home office'];
 
-  products: any[] = [
+  filteredProducts: any[] = [
     { id: 1, name: 'Red Dead Redemption II para PS4', category: 'GAMES - Os melhores jogos do mercado', price: 125, imageUrl: 'assets/products/jogo.png' },
     { id: 2, name: 'Memória RAM Corsair, 4GB, 1333MHz, DDR3, CL9', category: 'HARDWARE - As melhores ofertas de hardware estão aqui', price: 99, imageUrl: 'assets/products/memoria.png' },
     { id: 3, name: 'Cadeira Mymax Presidente Mesh Giratoria', category: 'WORK - tudo o que você precisa para o seu home office', price: 280, imageUrl: 'assets/products/cadeira.png' },
@@ -31,31 +33,21 @@ export class ProdutosComponent implements OnInit {
     { id: 15, name: 'Caixa Arquivo Gaveteiro Organizador', category: 'WORK - tudo o que você precisa para o seu home office', price: 110, imageUrl: 'assets/products/office.png' },
   ];
 
-  filteredProducts: any[] = [];
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
-  ngOnInit(): void {
-    this.filterProductsByCategory();
-  }
-
-  // Filtra os produtos com base na categoria selecionada
-  filterProductsByCategory() {
-    this.filteredProducts = this.products.filter(product => product.category === this.selectedCategory);
-  }
-
-  // Função para alterar a categoria selecionada
-  onCategoryChange(category: string) {
-    this.selectedCategory = category;
-    this.filterProductsByCategory();
-  }
-
-  // Função para adicionar o produto ao carrinho (apenas exemplo)
-  addToCart(product: any) {
-    console.log(`${product.name} foi adicionado ao carrinho!`);
-    // Aqui você poderia adicionar o produto a um serviço de carrinho, por exemplo.
+  ngOnInit(): void {}
 
 
+// Método para adicionar ao carrinho
+addToCart(product: any) {
+  console.log("Adicionando ao carrinho:", product); // Log para verificar se o clique foi detectado
+  this.cartService.addToCart(product); // Chama o serviço para adicionar o produto
+    alert("O Produto foi adicionado ao carrinho"); // Alerta para o usuário
+}
 
+// Método para filtrar os produtos por categoria (exemplo simples)
+onCategoryChange(category: string) {
+  this.filteredProducts = this.filteredProducts.filter(product => product.name.includes(category));
   }
 }

@@ -1,0 +1,12 @@
+<!-- src/app/cart/cart.component.html -->
+<div class="cart-container">
+  <h3>Carrinho de Compras</h3>
+  <ul>
+    <li *ngFor="let item of cartItems">
+      <p>{{ item.name }} - R$ {{ item.price }}</p>
+      <button (click)="removeFromCart(item)">Remover</button>
+    </li>
+  </ul>
+  <p *ngIf="cartItems.length > 0">Total: R$ {{ totalPrice }}</p>
+  <p *ngIf="cartItems.length === 0">Carrinho vazio</p>
+</div>
