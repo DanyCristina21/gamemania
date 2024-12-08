@@ -15,6 +15,8 @@ interface Product {
 export class CartService {
   private cartItems: Product[] = [];
   private cartItemsSubject = new BehaviorSubject<Product[]>(this.cartItems); // Emite o estado atual
+  private itensNoCarrinho = new BehaviorSubject<number>(0);
+  itens$ = this.itensNoCarrinho.asObservable();
 
   constructor() {}
 
@@ -22,6 +24,11 @@ export class CartService {
   getCartItems() {
     return this.cartItemsSubject.asObservable(); // Permite que os componentes se inscrevam e recebam atualizações
   }
+
+  atualizarItens(quantidade: number) {
+    this.itensNoCarrinho.next(quantidade);
+  }
+
 
   // Adiciona um item ao carrinho
   addToCart(product: Product) {
