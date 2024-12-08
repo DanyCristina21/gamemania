@@ -7,6 +7,6 @@
       <button (click)="removeFromCart(item)">Remover</button>
     </li>
   </ul>
-  <p *ngIf="cartItems.length > 0">Total: R$ {{ totalPrice }}</p>
+  <p class="cart-total" *ngIf="cartItems.length > 0">Total: R$ {{ totalPrice }}</p>
   <p *ngIf="cartItems.length === 0">Carrinho vazio</p>
 </div>

@@ -13,9 +13,18 @@ import { CartService } from '../../cart.service';
 })
 export class ProdutosComponent implements OnInit {
 
-  categories = ['GAMES - Os melhores jogos do mercado', 'MONTE O SEU PC - tudo para montar e turbinar a sua máquina', 'HARDWARE - As melhores ofertas de hardware estão aqui', 'PERIFÉRICOS - aqui você encontra todos os dispositivos que necessita', 'SMARTPHONES - celulares para todos gostos e bolsos', 'WORK - tudo o que você precisa para o seu home office'];
+  categories = [
+    'GAMES - Os melhores jogos do mercado',
+    'MONTE O SEU PC - tudo para montar e turbinar a sua máquina',
+    'HARDWARE - As melhores ofertas de hardware estão aqui',
+    'PERIFÉRICOS - aqui você encontra todos os dispositivos que necessita',
+    'SMARTPHONES - celulares para todos gostos e bolsos',
+    'WORK - tudo o que você precisa para o seu home office',
+    'TODAS AS CATEGORIAS'
+  ];
 
-  filteredProducts: any[] = [
+  // Lista original de produtos
+  allProducts: any[] = [
     { id: 1, name: 'Red Dead Redemption II para PS4', category: 'GAMES - Os melhores jogos do mercado', price: 125, imageUrl: 'assets/products/jogo.png' },
     { id: 2, name: 'Memória RAM Corsair, 4GB, 1333MHz, DDR3, CL9', category: 'HARDWARE - As melhores ofertas de hardware estão aqui', price: 99, imageUrl: 'assets/products/memoria.png' },
     { id: 3, name: 'Cadeira Mymax Presidente Mesh Giratoria', category: 'WORK - tudo o que você precisa para o seu home office', price: 280, imageUrl: 'assets/products/cadeira.png' },
@@ -33,10 +42,16 @@ export class ProdutosComponent implements OnInit {
     { id: 15, name: 'Caixa Arquivo Gaveteiro Organizador', category: 'WORK - tudo o que você precisa para o seu home office', price: 110, imageUrl: 'assets/products/office.png' },
   ];
 
+  // Lista filtrada exibida na interface
+  filteredProducts: any[] = [];
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService) {}
 
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    // Inicializa a lista filtrada com todos os produtos
+    this.filteredProducts = [...this.allProducts];
+  }
 
 
 // Método para adicionar ao carrinho
@@ -46,8 +61,13 @@ addToCart(product: any) {
     alert("O Produto foi adicionado ao carrinho"); // Alerta para o usuário
 }
 
-// Método para filtrar os produtos por categoria (exemplo simples)
+// Método para filtrar os produtos por categoria
 onCategoryChange(category: string) {
-  this.filteredProducts = this.filteredProducts.filter(product => product.name.includes(category));
+  if (category === 'TODAS AS CATEGORIAS') {
+    this.filteredProducts = [...this.allProducts]; // Restaura todos os produtos
+  } else {
+    this.filteredProducts = this.allProducts.filter(product => product.category === category);
   }
+}
+
 }
