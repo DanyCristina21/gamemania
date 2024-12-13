@@ -2,12 +2,33 @@
 <app-searchbar></app-searchbar>
 <app-navbar></app-navbar>
 <app-carousel></app-carousel>
-<app-cart></app-cart>
 <app-promos></app-promos>
 <app-banners></app-banners>
+<app-cart></app-cart>
 <app-produtos></app-produtos>
+
+<div class="container">
+  <!-- Exibe o formulário de login se isCadastro for false -->
+  <ng-container *ngIf="!isCadastro">
+    <app-login></app-login> <!-- Exibe o componente de login -->
+    <p class="link">
+      Se não possui cadastro, <button (click)="mostrarCadastro()">CLIQUE AQUI</button> para criar uma conta.
+    </p>
+  </ng-container>
+
+  <!-- Exibe o formulário de cadastro se isCadastro for true -->
+  <ng-container *ngIf="isCadastro">
+    <app-cadastro></app-cadastro> <!-- Exibe o componente de cadastro -->
+    <p class="link">
+      Já possui cadastro? <button (click)="mostrarLogin()">Clique aqui para entrar</button>.
+    </p>
+  </ng-container>
+</div>
+
+
 <app-footer></app-footer>
 
 
 
-<router-outlet />
+
+

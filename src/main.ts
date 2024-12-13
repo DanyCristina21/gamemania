@@ -3,6 +3,7 @@ import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
 import { CartComponent } from './app/components/cart/cart.component';
 import { HeaderComponent } from './app/components/header/header.component';
+import { routes } from './app/app.routes';
 
 bootstrapApplication(AppComponent)
   .catch((err) => console.error(err));
@@ -15,4 +16,8 @@ bootstrapApplication(AppComponent)
       ]),
     ],
   });
+
+  bootstrapApplication(AppComponent, {
+    providers: [provideRouter(routes)],
+  }).catch((err) => console.error(err));
 
