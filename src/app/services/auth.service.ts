@@ -5,7 +5,7 @@ import { Observable, of, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private validUser = { email: 'test@example.com', password: '123456' };
+  private validUser = { email: 'teste@exemplo.com', password: '123456' };
 
   login(email: string, password: string): Observable<boolean> {
     if (email === this.validUser.email && password === this.validUser.password) {

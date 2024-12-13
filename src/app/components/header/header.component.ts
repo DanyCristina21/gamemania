@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../cart.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -22,6 +23,13 @@ export class HeaderComponent implements OnInit {
 
   rolarParaCarrinho() {
     const elemento = document.getElementById('carrinho');
+    if (elemento) {
+      elemento.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  rolarParaLogin() {
+    const elemento = document.getElementById('login');
     if (elemento) {
       elemento.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }

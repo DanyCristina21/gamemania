@@ -4,6 +4,7 @@ import { CadastroComponent } from './components/cadastro/cadastro.component';
 
 
 export const routes: Routes = [
+  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'header', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' },
